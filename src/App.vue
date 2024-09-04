@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Navbar />
         <h1>영화 정보</h1>
         <div class="item" v-for="(data, i) in datas" :key="data.id">
             <figure>
@@ -11,21 +12,26 @@
                 <p>장르: {{ data.category }}</p>
                 <button @click="increaseLike(i)">좋아요</button>
                 <span>{{ data.like }}</span>
-                <p><button @click="isModal = true">상세보기</button></p>
+                <p>
+                    <button
+                        @click="
+                            isModal = true;
+                            selectedMovie = i;
+                        "
+                    >
+                        상세보기
+                    </button>
+                </p>
             </div>
         </div>
-        <div class="modal" v-if="isModal">
-            <div class="inner">
-                <h3>Detail</h3>
-                <p>영화 상세정보</p>
-                <button @click="isModal = false">닫기</button>
-            </div>
-        </div>
+        <Modal />
     </div>
 </template>
 
 <script>
 import datas from "./assets/movies";
+import Navbar from "./components/Navbar.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
     name: "App",
@@ -33,12 +39,17 @@ export default {
         return {
             isModal: false,
             datas: datas,
+            selectedMovie: 0,
         };
     },
     methods: {
         increaseLike(i) {
             this.datas[i].like += 1;
         },
+    },
+    components: {
+        Navbar,
+        Modal,
     },
 };
 </script>
@@ -89,24 +100,5 @@ button {
 
 .item .info {
     width: 100%;
-}
-
-.modal {
-    background: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal .inner {
-    background: #fff;
-    width: 80%;
-    padding: 20px;
-    border-radius: 10px;
 }
 </style>

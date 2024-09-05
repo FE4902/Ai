@@ -24,7 +24,12 @@
                 </p>
             </div>
         </div>
-        <Modal />
+        <Modal
+            :datas="datas"
+            :isModal="isModal"
+            :selectedMovie="selectedMovie"
+            @closeModal="isModal = false"
+        />
     </div>
 </template>
 

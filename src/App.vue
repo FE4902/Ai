@@ -1,8 +1,10 @@
 <template>
     <div>
         <Navbar />
+        <SearchBar :datas="datas_temp" @searchMovie="searchMovie($event)" />
+        <p><button @click="showAllMovie">전체보기</button></p>
         <Movies
-            :datas="datas"
+            :datas="datas_temp"
             @openModal="
                 isModal = true;
                 selectedMovie = $event;
@@ -23,6 +25,7 @@ import datas from "./assets/movies";
 import Navbar from "./components/Navbar.vue";
 import Movies from "./components/Movies.vue";
 import Modal from "./components/Modal.vue";
+import SearchBar from "./components/SearchBar.vue";
 
 export default {
     name: "App",
@@ -30,6 +33,7 @@ export default {
         return {
             isModal: false,
             datas: datas,
+            datas_temp: [...datas],
             selectedMovie: 0,
         };
     },
@@ -37,11 +41,20 @@ export default {
         increaseLike(i) {
             this.datas[i].like += 1;
         },
+        searchMovie(title) {
+            this.datas_temp = this.datas.filter((movie) => {
+                return movie.title.includes(title);
+            });
+        },
+        showAllMovie() {
+            this.datas_temp = [...this.datas];
+        },
     },
     components: {
         Navbar,
         Movies,
         Modal,
+        SearchBar,
     },
 };
 </script>

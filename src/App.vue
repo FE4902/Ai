@@ -7,6 +7,7 @@
                 isModal = true;
                 selectedMovie = $event;
             "
+            @increaseLike="increaseLike($event)"
         />
         <Modal
             :datas="datas"

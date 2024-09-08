@@ -38,8 +38,13 @@ export default {
         };
     },
     methods: {
-        increaseLike(i) {
-            this.datas[i].like += 1;
+        increaseLike(id) {
+            // this.datas[i].like += 1;
+            this.datas.find((movie) => {
+                if (movie.id == id) {
+                    movie.like += 1;
+                }
+            });
         },
         searchMovie(title) {
             this.datas_temp = this.datas.filter((movie) => {

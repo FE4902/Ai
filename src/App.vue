@@ -1,6 +1,7 @@
 <template>
     <div>
         <Navbar />
+        <Event :text="text[eventTextNumber]" />
         <SearchBar :datas="datas_temp" @searchMovie="searchMovie($event)" />
         <p><button @click="showAllMovie">전체보기</button></p>
         <Movies
@@ -23,6 +24,7 @@
 <script>
 import datas from "./assets/movies";
 import Navbar from "./components/Navbar.vue";
+import Event from "./components/Event.vue";
 import Movies from "./components/Movies.vue";
 import Modal from "./components/Modal.vue";
 import SearchBar from "./components/SearchBar.vue";
@@ -35,6 +37,12 @@ export default {
             datas: datas,
             datas_temp: [...datas],
             selectedMovie: 0,
+            text: [
+                "넷플릭스 강렬한 운명의 드라마, 경성크리쳐",
+                "디즈니 100주년 기념작, 위시",
+                "그날, 대한민국의 운명이 바뀌었다, 서울의 봄",
+            ],
+            eventTextNumber: 0,
         };
     },
     methods: {
@@ -57,9 +65,19 @@ export default {
     },
     components: {
         Navbar,
+        Event,
         Movies,
         Modal,
         SearchBar,
+    },
+    mounted() {
+        setInterval(() => {
+            if (this.eventTextNumber == this.text.length - 1) {
+                this.eventTextNumber = 0;
+            } else {
+                this.eventTextNumber += 1;
+            }
+        }, 3000);
     },
 };
 </script>

@@ -1,32 +1,48 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
-import ChildComponent from "./components/ChildComponent.vue";
-
-let count = ref(0);
-let title = "Hello Vue";
-let color = ref("green");
-
-onMounted(() => {
-    console.log("mounted");
-});
-
-const increaseCount = () => {
-    count.value++;
-};
-
-watch(color, () => {
-    console.log("color 변경");
-});
+import Title from "./components/Title.vue";
 </script>
 
 <template>
     <div>
-        <h1>{{ title }}</h1>
-        <button @click="increaseCount">count++</button>
-        <p>{{ count }}</p>
-        <ChildComponent :color="color" bgColor="yellow" />
-        <button @click="color = 'red'">change color</button>
+        <nav
+            class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+            data-bs-theme="dark"
+        >
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Doolee</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="#"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <Title />
     </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

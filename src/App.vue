@@ -1,5 +1,6 @@
 <script setup>
 import Title from "./components/Title.vue";
+import Portfolio from "./components/Portfolio.vue";
 </script>
 
 <template>
@@ -42,7 +43,8 @@ import Title from "./components/Title.vue";
             </div>
         </nav>
         <Title />
+        <Portfolio />
     </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

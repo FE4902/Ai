@@ -31,20 +31,21 @@ const title = "Hello,<br> I'm Michael Kwon";
     }
 
     figure {
+        display: grid;
+        place-items: center;
+
         img {
             width: 100%;
         }
-        display: grid;
-        place-items: center;
     }
 
     .text {
+        display: grid;
+        place-items: center;
+
         h2 {
             font-size: 4em;
         }
-
-        display: grid;
-        place-items: center;
     }
 }
 </style>

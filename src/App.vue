@@ -1,51 +1,11 @@
 <script setup>
-import TitlePage from "./components/Title.vue";
-import Portfolio from "./components/Portfolio.vue";
-import About from "./components/About.vue";
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
     <div>
-        <nav
-            class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
-            data-bs-theme="dark"
-        >
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Doolee</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                aria-current="page"
-                                href="#"
-                                >Home</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <TitlePage />
-        <Portfolio />
-        <About />
+        <Navbar />
+        <router-view />
     </div>
 </template>
 

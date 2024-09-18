@@ -1,13 +1,5 @@
-<script setup>
-import Navbar from "./components/Navbar.vue";
-import data from "./assets/portfolio";
-</script>
+<script setup></script>
 
-<template>
-    <div>
-        <Navbar />
-        <router-view :data="data" />
-    </div>
-</template>
+<template></template>
 
-<style lang="scss" scoped></style>
+<style scoped lang="scss"></style>

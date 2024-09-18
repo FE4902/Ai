@@ -1,6 +1,6 @@
 <template>
     <nav
-        class="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+        class="navbar navbar-expand-lg bg-body-tertiary sticky-top mb-4"
         data-bs-theme="dark"
     >
         <div class="container-fluid">

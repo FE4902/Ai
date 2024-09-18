@@ -1,11 +1,12 @@
 <script setup>
 import Navbar from "./components/Navbar.vue";
+import data from "./assets/portfolio";
 </script>
 
 <template>
     <div>
         <Navbar />
-        <router-view />
+        <router-view :data="data" />
     </div>
 </template>
 

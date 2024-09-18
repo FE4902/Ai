@@ -6,14 +6,22 @@
                 <img :src="value.imgUrl" alt="" />
                 <h3>{{ value.title }}</h3>
                 <p>{{ value.desc }}</p>
+                <small class="mb-3 text-secondary">{{ value.skills }}</small>
+                <router-link
+                    class="btn btn-primary"
+                    :to="`/detail/${value.id}`"
+                >
+                    상세보기
+                </router-link>
             </li>
-            <li></li>
         </ul>
     </section>
 </template>
 
 <script setup>
-import data from "../assets/portfolio";
+const props = defineProps({
+    data: Array,
+});
 </script>
 
 <style lang="scss" scoped>

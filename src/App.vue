@@ -1,12 +1,12 @@
 <script setup>
 import Navbar from "./components/Navbar.vue";
-import SearchBar from "./components/SearchBar.vue";
+import MainComp from "./components/MainComp.vue";
 </script>
 
 <template>
     <div>
         <Navbar />
-        <SearchBar />
+        <MainComp />
         <font-awesome-icon :icon="['fas', 'location-dot']" />
     </div>
 </template>

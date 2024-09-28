@@ -12,8 +12,7 @@ const weatherData = ref({
     city: "Seoul",
 });
 
-onMounted(() => {
-    console.log("mounted");
+function getWeather() {
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${
         weatherData.value.city
     }&appid=${import.meta.env.VITE_API_KEY}`;
@@ -25,15 +24,27 @@ onMounted(() => {
             weatherData.value.text = data.weather[0].description;
             weatherData.value.location = data.sys.country;
             weatherData.value.city = data.name;
-            console.log(weatherData.value);
+        })
+        .catch((err) => {
+            alert("에러가 발생했습니다. 잠시 후 다시 시도해주세요.");
         });
+}
+
+onMounted(() => {
+    getWeather();
 });
+
+const onSearchCity = (city) => {
+    weatherData.value.city = city;
+
+    getWeather();
+};
 </script>
 
 <template>
     <div>
         <Navbar />
-        <MainComp :weatherData="weatherData" />
+        <MainComp :weatherData="weatherData" @onSearchCity="onSearchCity" />
     </div>
 </template>
 

@@ -10,6 +10,7 @@ export default createStore({
             location: "location",
             city: "Seoul",
         },
+        toggle: false,
     },
     mutations: {
         addCount(state, payload) {
@@ -24,6 +25,9 @@ export default createStore({
         },
         onSearchCity(state, payload) {
             state.weatherData.city = payload;
+        },
+        toggleButton(state) {
+            state.toggle = !state.toggle;
         },
     },
     actions: {

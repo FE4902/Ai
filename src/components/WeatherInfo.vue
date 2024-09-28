@@ -2,25 +2,22 @@
     <div class="weather-info">
         <div class="icon">
             <img
-                :src="`https://openweathermap.org/img/wn/${props.weatherData.icon}@2x.png`"
+                :src="`https://openweathermap.org/img/wn/${$store.state.weatherData.icon}@2x.png`"
                 alt="날씨 정보 아이콘"
             />
         </div>
         <div class="temp">
-            {{ (props.weatherData.temp - 273.15).toFixed(1) }}&deg;
+            {{ ($store.state.weatherData.temp - 273.15).toFixed(1) }}&deg;
         </div>
-        <div class="text">{{ props.weatherData.text }}</div>
+        <div class="text">{{ $store.state.weatherData.text }}</div>
         <div class="location">
-            {{ props.weatherData.city }}, {{ props.weatherData.location }}
+            {{ $store.state.weatherData.city }},
+            {{ $store.state.weatherData.location }}
         </div>
     </div>
 </template>
 
-<script setup>
-const props = defineProps({
-    weatherData: Object,
-});
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .weather-info {

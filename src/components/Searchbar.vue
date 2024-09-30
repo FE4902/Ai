@@ -1,3 +1,11 @@
+<script setup>
+import { ref } from "vue";
+import { useStore } from "../store/store";
+
+const store = useStore();
+const inputText = ref("");
+</script>
+
 <template>
     <div class="search-bar">
         <form @submit.prevent>
@@ -9,8 +17,8 @@
                 />
                 <button
                     @click="
-                        $store.commit('onSearchCity', inputText);
-                        $store.dispatch('getWeather');
+                        store.onSearchCity(inputText);
+                        store.getWeather();
                     "
                 >
                     <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
@@ -19,12 +27,6 @@
         </form>
     </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const inputText = ref("");
-</script>
 
 <style lang="scss" scoped>
 .search-bar {
